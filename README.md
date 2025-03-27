@@ -11,10 +11,19 @@ First create a conda environment using the provided environment.yml file (use `e
 conda env create -f environment_ubuntu.yml
 ```
 
-Then activate the environment using:
+Second activate the environment using:
 ```
 conda activate rlds_env
 ```
+Change the dataset dir to your local disk in this [line](https://github.com/hyy02/calvin_rlds_builder/blob/a83ea80b890d2e9a4f1fee02ca1a7c99c5254192/calvin/calvin_dataset_builder.py#L96).
+
+Then run tfds build in the calvin dir:
+```
+cd calvin
+tfds build --data-dir <your_path>
+```
+Finally, you can find the rlds type datasets in <your_path>.
+
 If you meet some problems, feel free to raise an issue,or contact huangyiyang24@mails.ucas.ac.cn
 
 
