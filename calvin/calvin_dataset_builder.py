@@ -124,16 +124,16 @@ class Calvin(tfds.core.GeneratorBasedBuilder):
                     'original_actions': step_data['actions'],
                 })
 
-                # create output data sample
-                sample = {
-                    'steps': episode,
-                    'episode_metadata': {
-                        'idx_tuple': str(idx_tuple[0]) + ',' + str(idx_tuple[1]),
-                    }
+            # create output data sample
+            sample = {
+                'steps': episode,
+                'episode_metadata': {
+                    'idx_tuple': str(idx_tuple[0]) + ',' + str(idx_tuple[1]),
                 }
+            }
 
-                # if you want to skip an example for whatever reason, simply return None
-                return str(idx_tuple[0]) + ',' + str(idx_tuple[1]), sample
+            # if you want to skip an example for whatever reason, simply return None
+            return str(idx_tuple[0]) + ',' + str(idx_tuple[1]), sample
 
         # The lang episodes for the data
         lang_ann = np.load(f'{path}/lang_annotations/auto_lang_ann.npy', allow_pickle=True).item()
